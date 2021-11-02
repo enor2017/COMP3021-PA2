@@ -2,9 +2,11 @@ package hk.ust.cse.comp3021.pa2.view.panes;
 
 import hk.ust.cse.comp3021.pa2.InertiaFxGame;
 import hk.ust.cse.comp3021.pa2.controller.GameController;
+import hk.ust.cse.comp3021.pa2.model.GameBoard;
 import hk.ust.cse.comp3021.pa2.model.GameState;
 import hk.ust.cse.comp3021.pa2.util.NotImplementedException;
 import hk.ust.cse.comp3021.pa2.view.GameUIComponent;
+import hk.ust.cse.comp3021.pa2.view.UIServices;
 import hk.ust.cse.comp3021.pa2.view.events.MoveEvent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -78,9 +80,15 @@ public class MainGamePane extends VBox implements GameUIComponent {
      * @param e The corresponding {@link MoveEvent}.
      */
     private void gameMoveHandler(MoveEvent e) {
-        // TODO: Update the game board and game statistics
+        // Update the game board and game statistics
+        gameBoard.showGameState(gameState);
+        gameStatisticsPane.showStatistics(gameState);
 
-        // TODO: Show a dialog if the user wins the game or loses the game.
-        throw new NotImplementedException();
+        // Show a dialog if the user wins the game or loses the game.
+        if (gameState.hasWon()) {
+            UIServices.showWinDialog();
+        } else if (gameState.hasLost()) {
+            UIServices.showLoseDialog();
+        }
     }
 }

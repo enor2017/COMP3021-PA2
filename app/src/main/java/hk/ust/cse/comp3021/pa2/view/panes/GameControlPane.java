@@ -7,6 +7,7 @@ import hk.ust.cse.comp3021.pa2.view.GameUIComponent;
 import hk.ust.cse.comp3021.pa2.view.events.MoveEvent;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ObjectPropertyBase;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -46,7 +47,7 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      */
     private void move(@NotNull Direction direction) {
         // TODO: Perform move action on game controller and trigger the move event with its result.
-        throw new NotImplementedException();
+        var result = gameController.processMove(direction);
     }
 
     /**
@@ -80,7 +81,6 @@ public class GameControlPane extends GridPane implements GameUIComponent {
         GridPane.setFillWidth(undoButton, true);
 
         // TODO: Add event handler for the click event of the undo button.
-        throw new NotImplementedException();
     }
 
     /**
@@ -88,7 +88,6 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      */
     private void setMoveButtonsHandler() {
         // TODO: Add event handler for the click event of the move buttons.
-        throw new NotImplementedException();
     }
 
     /**
@@ -104,8 +103,11 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      * Adds the move buttons to the appropriate position in the grid.
      */
     private void addMoveButtons() {
-        // TODO: Place the move buttons to appropriate position of the pane.
-        throw new NotImplementedException();
+        // Place the move buttons to appropriate position of the pane.
+        this.add(upButton, 1, 0);
+        this.add(downButton, 1, 2);
+        this.add(leftButton, 0, 1);
+        this.add(rightButton, 2, 1);
     }
 
     /**
@@ -132,6 +134,5 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      */
     public void performUndo() {
         // TODO: Perform undo on the game controller and trigger the move event with the latest move result after undo.
-        throw new NotImplementedException();
     }
 }
