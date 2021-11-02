@@ -46,8 +46,9 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      * @param direction The {@link Direction} to move.
      */
     private void move(@NotNull Direction direction) {
-        // TODO: Perform move action on game controller and trigger the move event with its result.
+        // Perform move action on game controller and trigger the move event with its result.
         var result = gameController.processMove(direction);
+        moveEvent.get().handle(new MoveEvent(result));
     }
 
     /**
@@ -80,14 +81,19 @@ public class GameControlPane extends GridPane implements GameUIComponent {
         this.undoButton.setMaxWidth(Double.MAX_VALUE);
         GridPane.setFillWidth(undoButton, true);
 
-        // TODO: Add event handler for the click event of the undo button.
+        // Add event handler for the click event of the undo button.
+        undoButton.setOnAction(e -> performUndo());
     }
 
     /**
      * Set the event handlers for the move buttons
      */
     private void setMoveButtonsHandler() {
-        // TODO: Add event handler for the click event of the move buttons.
+        // Add event handler for the click event of the move buttons.
+        upButton.setOnAction(e -> move(Direction.UP));
+        downButton.setOnAction(e -> move(Direction.DOWN));
+        leftButton.setOnAction(e -> move(Direction.LEFT));
+        rightButton.setOnAction(e -> move(Direction.RIGHT));
     }
 
     /**
@@ -133,6 +139,14 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      * Performs an undo action on the game.
      */
     public void performUndo() {
-        // TODO: Perform undo on the game controller and trigger the move event with the latest move result after undo.
+        // Perform undo on the game controller and trigger the move event with the latest move result after undo.
+        var moveStack = gameController.getGameState().getMoveStack();
+        // if nothing to undo, do nothing
+        // else, handle it and trigger the MoveEvent
+        if (!moveStack.isEmpty()) {
+            var result = moveStack.peek();
+            gameController.processUndo();
+            moveEvent.get().handle(new MoveEvent(result));
+        }
     }
 }
