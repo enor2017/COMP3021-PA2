@@ -110,7 +110,7 @@ public class UIServices {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(WIN_ALERT_TITLE);
         alert.setContentText(WIN_ALERT_CONTENT_TEXT);
-        alert.show();
+        alert.showAndWait();
     }
 
     private static final String LOSE_ALERT_TITLE = "Oops";
@@ -125,6 +125,6 @@ public class UIServices {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(LOSE_ALERT_TITLE);
         alert.setContentText(LOSE_ALERT_CONTENT_TEXT);
-        alert.show();
+        alert.showAndWait();
     }
 }

@@ -85,8 +85,10 @@ public class MainGamePane extends VBox implements GameUIComponent {
         // Show a dialog if the user wins the game or loses the game.
         if (gameState.hasWon()) {
             UIServices.showWinDialog();
+            game.showMainMenu();
         } else if (gameState.hasLost()) {
             UIServices.showLoseDialog();
+            game.showMainMenu();
         }
     }
 }
