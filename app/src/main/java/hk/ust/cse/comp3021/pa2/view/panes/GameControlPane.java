@@ -2,12 +2,10 @@ package hk.ust.cse.comp3021.pa2.view.panes;
 
 import hk.ust.cse.comp3021.pa2.controller.GameController;
 import hk.ust.cse.comp3021.pa2.model.Direction;
-import hk.ust.cse.comp3021.pa2.util.NotImplementedException;
 import hk.ust.cse.comp3021.pa2.view.GameUIComponent;
 import hk.ust.cse.comp3021.pa2.view.events.MoveEvent;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ObjectPropertyBase;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
