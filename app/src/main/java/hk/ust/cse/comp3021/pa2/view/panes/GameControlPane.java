@@ -137,7 +137,7 @@ public class GameControlPane extends GridPane implements GameUIComponent {
      * Performs an undo action on the game.
      */
     public void performUndo() {
-        // Perform undo on the game controller and trigger the move event with the latest move result after undo.
+        // Perform undo on the game controller and trigger the move event with the move *that was just undone*.
         var moveStack = gameController.getGameState().getMoveStack();
         // if nothing to undo, do nothing
         // else, handle it and trigger the MoveEvent
