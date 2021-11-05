@@ -79,6 +79,7 @@ public class UIServices {
     public static void showLoadGameErrorDialog() {
         // Show a dialog using the provided strings above.
         Alert alert = new Alert(AlertType.ERROR);
+        alert.setHeaderText("Error!");
         alert.setTitle(LOAD_GAME_ERROR_ALERT_TITLE);
         alert.setContentText(LOAD_GAME_ERROR_ALERT_CONTENT_TEXT);
         alert.show();
@@ -93,8 +94,9 @@ public class UIServices {
      */
     public static void showFileNotSelectedDialog() {
         // Show a dialog using the provided strings above.
-        Alert alert = new Alert(AlertType.ERROR);
+        Alert alert = new Alert(AlertType.WARNING);
         alert.setTitle(LOAD_GAME_CANCEL_ALERT_TITLE);
+        alert.setHeaderText("Warning!");
         alert.setContentText(LOAD_GAME_CANCEL_ALERT_CONTENT_TEXT);
         alert.show();
     }
@@ -109,6 +111,7 @@ public class UIServices {
     public static void showWinDialog() {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(WIN_ALERT_TITLE);
+        alert.setHeaderText("Information!");
         alert.setContentText(WIN_ALERT_CONTENT_TEXT);
         alert.showAndWait();
     }
@@ -124,6 +127,7 @@ public class UIServices {
         // Show a dialog using the provided strings above.
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(LOSE_ALERT_TITLE);
+        alert.setHeaderText("Information!");
         alert.setContentText(LOSE_ALERT_CONTENT_TEXT);
         alert.showAndWait();
     }
