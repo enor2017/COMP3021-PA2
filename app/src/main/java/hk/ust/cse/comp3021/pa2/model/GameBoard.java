@@ -159,6 +159,19 @@ public final class GameBoard {
                     final var posOffset = new PositionOffset(dir.getRowOffset() * i, dir.getColOffset() * i);
                     final var posToAdd = getEntityCellByOffset(nextPos, posOffset);
                     if (posToAdd == null) {
+                        final var maxDist = i - 1;
+                        if (maxDist > 0) {
+                            final var posOffsetBeforeThis = new PositionOffset(
+                                    dir.getRowOffset() * maxDist,
+                                    dir.getColOffset() * maxDist
+                            );
+                            final var posBeforeThis = getEntityCellByOffset(nextPos, posOffsetBeforeThis);
+
+                            if (posBeforeThis != null && !posToTraverse.contains(posBeforeThis)) {
+                                posToTraverse.add(posBeforeThis);
+                            }
+                        }
+
                         break;
                     }
 

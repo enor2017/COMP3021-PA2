@@ -34,7 +34,8 @@ public class InertiaFxGame {
         primaryStage.setTitle("Inertia Game");
         primaryStage.setWidth(WINDOW_WIDTH);
         primaryStage.setHeight(WINDOW_HEIGHT);
-        primaryStage.resizableProperty().set(false);
+        // change the window to be resizable, otherwise larger map cannot be properly displayed.
+        primaryStage.resizableProperty().set(true);
         primaryStage.show();
         showMainMenu();
     }
