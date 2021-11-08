@@ -111,7 +111,7 @@ public class UIServices {
     public static void showWinDialog() {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(WIN_ALERT_TITLE);
-        alert.setHeaderText("Information!");
+        alert.setHeaderText("Message");
         alert.setContentText(WIN_ALERT_CONTENT_TEXT);
         alert.showAndWait();
     }
@@ -127,7 +127,7 @@ public class UIServices {
         // Show a dialog using the provided strings above.
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(LOSE_ALERT_TITLE);
-        alert.setHeaderText("Information!");
+        alert.setHeaderText("Message");
         alert.setContentText(LOSE_ALERT_CONTENT_TEXT);
         alert.showAndWait();
     }
